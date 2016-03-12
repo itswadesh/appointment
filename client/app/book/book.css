@@ -1,0 +1,12 @@
+.glass{
+/* background styles */
+position: relative;
+display: inline-block;
+padding: 5px 5px;
+background: white; /*for compatibility with older browsers*/
+background-image: linear-gradient(#fd9514,#f6b714);
+border-radius:5px 15px 5px;
+}
+ng-button{
+    color:white;
+}

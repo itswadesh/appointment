@@ -1,0 +1,32 @@
+<div>This is the book view.</div>
+{{$ctrl.message}}
+<form ng-submit="$ctrl.ad($ctrl.book)">
+<input type="text" ng-model="$ctrl.book.name" placeholder="name"/>
+<input type="text" ng-model="$ctrl.book.info" placeholder="info"/>
+<input type="text" ng-model="$ctrl.book.author" placeholder="author"/>
+<button type="submit">SUBMIT</button>
+</form>
+
+<ul >
+    <li ng-repeat="a in $ctrl.data ">
+        {{a.name}}{{a.info}}{{a.author}}<md-button class="glass md-raised" ng-click="$ctrl.del(a)">delete</md-button>
+        <button ng-click="$ctrl.edt(a)">edt</button>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
