@@ -24,10 +24,9 @@ class MainController {
         mm='0'+mm
     } 
     // Create date array
-    this.dates = [{dd:dd,mm:mm,yyyy:yyyy},{dd:dd+1,mm:mm,yyyy:yyyy},{dd:dd+2,mm:mm,yyyy:yyyy},{dd:dd+3,mm:mm,yyyy:yyyy}];
+    this.days = [{dd:dd,mm:mm,yyyy:yyyy},{dd:dd+1,mm:mm,yyyy:yyyy},{dd:dd+2,mm:mm,yyyy:yyyy},{dd:dd+3,mm:mm,yyyy:yyyy}];
   }
   save(appointment){
-      console.log(appointment)
       var apt = {};
     // var date = new Date(date.yyyy, date.mm-1, date.dd, appointment.h,appointment.m);
     apt.date = appointment;
@@ -39,8 +38,8 @@ class MainController {
     this.$http.get('/api/appointments').then(response=>{
         this.slots=[{h:'10',m:'00'},{h:'10',m:'15'},{h:'10',m:'30'},{h:'10',m:'45'},{h:'11',m:'00'},{h:'11',m:'15'},{h:'11',m:'30'}];
         var a = [];
-        _.each(vm.dates, function(d) { 
-            var k=d;
+        _.each(vm.days, function(d) { 
+            var k=new Date(d.yyyy,d.mm,d.dd);
            
             var v = [];
             _.each(vm.slots, function(s) { 
@@ -60,18 +59,13 @@ class MainController {
             })
             a.push({k:k,v:v});
         })
-        console.log(a);
         this.dates = a;
         this.appointment=response.data;
-        this.socket.syncUpdates('appointment', this.data);
+        this.socket.syncUpdates('appointment', this.dates);
     });
   }
-  del(d){
+  delete(d){
       this.$http.delete('/api/appointments/'+d._id);
-  }
-  edt(d){
-     this.appointment=d;
-      
   }
   
 }

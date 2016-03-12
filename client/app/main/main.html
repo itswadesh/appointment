@@ -1,17 +1,13 @@
 <ul>
     <li ng-repeat="d in $ctrl.dates">
-        {{d.k}}
+        {{d.k | date:'dd-MMM-yyyy'}}
         <!--<div ng-repeat="i in $ctrl.appointment">-->
             <md-button class="md-warn md-raised" 
             ng-repeat="i in d.v"
             ng-click="$ctrl.save(i.text)"
             ng-disabled="!i.active">
-                {{i.text | date:'MM/dd/yyyy @ h:mma'}}
+                {{i.text | date:'h:mma'}}
             </md-button>
         <!--</div>-->
     </li>
-</ul>
-
-<ul>
-    <li ng-repeat="i in $ctrl.appointment">{{i.date | date:'MM/dd/yyyy @ h:mma'}}</li>
 </ul>
