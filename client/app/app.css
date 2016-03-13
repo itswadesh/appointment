@@ -18,7 +18,14 @@
 /**
  * App-wide Styles
  */
-
+.wrapper{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.wrapper .md-content{
+    flex:1; 
+}
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;

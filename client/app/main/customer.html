@@ -10,24 +10,21 @@
       </div>
     </md-toolbar>
     <md-dialog-content>
-            
-                <md-content  layout="column" layout-align="center center">
-                    <md-input-container>
-                        <label>Name</label>
-                        <input ng-model="customer.name">
-                    </md-input-container>
-                    <md-input-container>
-                        <label>phone no</label>
-                        <input ng-model="customer.phone" type="text">
-                    </md-input-container>
-                    <md-input-container layout-align="center center">
-                        <div layout="row" layout-sm="column" layout-margin>
-                            <md-button class="md-raised" flex="50" flex-sm="100" ng-click="answer(customer)" >Book Appointment</md-button>
-                            <md-button class="md-raised md-primary" flex="50" flex-sm="100">Register</md-button>
-                        </div>
-                    </md-input-container>
-                </md-content>
-            
+        <md-content  layout="column" layout-align="start center">
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="customer.name" required/>
+            </md-input-container>
+            <md-input-container>
+                <label>phone no</label>
+                <input ng-model="customer.phone" required/>
+            </md-input-container>
+            <md-input-container layout-align="center center">
+            </md-input-container>
+        </md-content>
+        <md-dialog-actions layout="row" layout-align="center center">
+            <md-button class="md-raised md-warn" ng-click="answer(customer)">Book Appointment</md-button>
+        </md-dialog-actions>
     </md-dialog-content>
-</form>
+  </form>
 </md-dialog>

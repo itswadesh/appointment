@@ -29,6 +29,7 @@ class MainController {
     this.days = [{dd:dd,mm:mm,yyyy:yyyy},{dd:dd+1,mm:mm,yyyy:yyyy},{dd:dd+2,mm:mm,yyyy:yyyy},{dd:dd+3,mm:mm,yyyy:yyyy}];
     this.slots= [{h:'10',m:'00'},{h:'10',m:'15'},{h:'10',m:'30'},{h:'10',m:'45'},{h:'11',m:'00'},{h:'11',m:'15'},{h:'11',m:'30'}];
   }
+  
   save(appointment){
     appointment.active=true;
     this.$http.post('/api/appointments',appointment).then(res=>{
@@ -42,6 +43,7 @@ class MainController {
     });
         
   }
+  
   $onInit(){
     var vm = this;
     this.$http.get('/api/appointments').then(response=>{
@@ -112,6 +114,27 @@ return a;
       console.log('You cancelled the dialog.');
     });
     
+  }
+  
+  getColor($index) {
+    var _d = ($index + 1) % 11;
+    var bg = '';
+
+    switch(_d) {
+      case 1:       bg = 'green';       break;
+      case 2:       bg = 'darkBlue';    break;
+      case 3:       bg = 'blue';        break;
+      case 4:       bg = 'yellow';      break;
+      case 5:       bg = 'pink';        break;
+      case 6:       bg = 'darkBlue';    break;
+      case 7:       bg = 'purple';      break;
+      case 8:       bg = 'deepBlue';    break;
+      case 9:       bg = 'lightPurple'; break;
+      case 10:      bg = 'red';         break;
+      default:      bg = 'yellow';      break;
+    }
+
+    return bg;
   }
  
 
