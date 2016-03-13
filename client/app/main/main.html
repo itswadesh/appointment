@@ -4,9 +4,9 @@
         <!--<div ng-repeat="i in $ctrl.appointment">-->
             <md-button class="md-warn md-raised" 
             ng-repeat="i in d.v"
-            ng-click="$ctrl.save(i.text)"
+            ng-click="$ctrl.showAdvanced(i)"
             ng-disabled="!i.active">
-                {{i.text | date:'h:mma'}}
+                {{i.date | date:'h:mma'}}
             </md-button>
         <!--</div>-->
     </li>
